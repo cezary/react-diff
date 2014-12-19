@@ -12,13 +12,13 @@
   var App = React.createClass({
     getInitialState: function() {
       return {
-        stringA: 'restaurant',
-        stringB: 'auras'
+        inputA: 'restaurant',
+        inputB: 'auras'
       };
     },
     render: function () {
       return (
-        <Diff stringA={this.state.stringA} stringB={this.state.stringB} />
+        <Diff inputA={this.state.inputA} inputB={this.state.inputB} type='char' />
       );
     },
   });
