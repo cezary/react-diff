@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>React Diff</title>
+</head>
+<body>
+<script src="//fb.me/react-with-addons-0.12.1.js"></script>
+<script src="//fb.me/JSXTransformer-0.12.1.js"></script>
+<script src="../dist/react-diff.js"></script>
+<script type="text/jsx">
+  var App = React.createClass({
+    getInitialState: function() {
+      return {
+        stringA: 'restaurant',
+        stringB: 'auras'
+      };
+    },
+    render: function () {
+      return (
+        <Diff stringA={this.state.stringA} stringB={this.state.stringB} />
+      );
+    },
+  });
+
+  React.render(<App/>, document.body);
+</script>
+</body>
+</html>
