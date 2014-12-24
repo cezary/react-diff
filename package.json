@@ -1,7 +1,7 @@
 {
   "name": "react-diff",
-  "version": "0.0.1",
-  "description": "React diff component",
+  "version": "0.0.2",
+  "description": "Highlight differences between inputs",
   "main": "lib/react-diff.js",
   "scripts": {
     "test": "script/test --browsers Firefox --single-run",
