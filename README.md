@@ -10,7 +10,7 @@ npm install react-diff
 
 ## Demo
 
-http://cezary.github.io/react-diff/example/
+http://cezary.github.io/react-diff/
 
 ## Example
 
@@ -21,7 +21,7 @@ var Diff = require('react-diff');
 var Component = React.createClass({
   render: function() {
     return (
-      <Diff inputA="gogol" inputB="google" type="words" />
+      <Diff inputA="gogol" inputB="google" type="chars" />
     );
   }
 });
