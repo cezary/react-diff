@@ -1,8 +1,0 @@
-#!/bin/sh
-webpack --devtool source-map
-
-node_modules/.bin/uglifyjs dist/react-diff.js \
-  --output dist/react-diff.min.js \
-  --source-map dist/react-diff.min.map \
-  --source-map-url react-diff.min.map \
-  --compress warnings=false

@@ -1,16 +1,10 @@
 {
   "name": "react-diff",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Highlight differences between inputs",
-  "main": "lib/react-diff.js",
+  "main": "dist/react-diff.js",
   "scripts": {
-    "test": "script/test --browsers Firefox --single-run",
-    "start": "script/build"
-  },
-  "browserify": {
-    "transform": [
-      "reactify"
-    ]
+    "build": "./node_modules/.bin/babel lib/react-diff.js > dist/react-diff.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +12,6 @@
   },
   "keywords": [
     "react",
-    "react-component",
     "diff"
   ],
   "author": "Cezary Wojtkowski <cezary@gmail.com>",
@@ -28,16 +21,12 @@
   },
   "homepage": "https://github.com/cezary/react-diff",
   "peerDependencies": {
-    "react": "^0.12.1"
+    "react": "^0.12.0 < 0.14.0"
   },
   "dependencies": {
     "diff": "^1.2.0"
   },
   "devDependencies": {
-    "jsx-loader": "^0.12.2",
-    "reactify": "^0.17.1",
-    "uglify-js": "^2.4.15",
-    "webpack": "^1.4.13",
-    "webpack-dev-server": "^1.6.6"
+    "babel": "^5.1.10"
   }
 }
