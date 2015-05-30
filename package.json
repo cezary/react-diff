@@ -1,6 +1,6 @@
 {
   "name": "react-diff",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Highlight differences between inputs",
   "main": "dist/react-diff.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/cezary/react-diff",
   "peerDependencies": {
-    "react": "^0.12.0 < 0.14.0"
+    "react": ">=0.12.0"
   },
   "dependencies": {
     "diff": "^1.2.0"
