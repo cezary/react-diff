@@ -4,12 +4,23 @@ var React = require('react');
 var jsdiff = require('diff');
 
 var fnMap = {
-  chars: jsdiff.diffChars,
-  words: jsdiff.diffWords,
-  sentences: jsdiff.diffSentences,
-  json: jsdiff.diffJson
+  'chars': jsdiff.diffChars,
+  'words': jsdiff.diffWords,
+  'sentences': jsdiff.diffSentences,
+  'json': jsdiff.diffJson
 };
 
+/**
+ * Display diff in a stylable form.
+ *
+ * Default is character diff. Change with props.type. Valid values
+ * are 'chars', 'words', 'sentences', 'json'.
+ *
+ *  - Wrapping div has class 'Difference', override with props.className
+ *  - added parts are in <ins>
+ *  - removed parts are in <del>
+ *  - unchanged parts are in <span>
+ */
 module.exports = React.createClass({
   displayName: 'Diff',
 
@@ -17,32 +28,48 @@ module.exports = React.createClass({
     return {
       inputA: '',
       inputB: '',
-      type: 'chars'
+      type: 'chars',
+      className: 'Difference'
     };
   },
 
   propTypes: {
     inputA: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.object]),
     inputB: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.object]),
-    type: React.PropTypes.oneOf(['chars', 'words', 'sentences', 'json'])
+    type: React.PropTypes.oneOf(['chars', 'words', 'sentences', 'json']),
+    className: React.PropTypes.string
   },
 
   render: function render() {
     var diff = fnMap[this.props.type](this.props.inputA, this.props.inputB);
-    var result = diff.map(function (part) {
-      var spanStyle = {
-        backgroundColor: part.added ? 'lightgreen' : part.removed ? 'salmon' : 'lightgrey'
-      };
+
+    var result = diff.map(function (part, index) {
+      if (part.added) {
+        return React.createElement(
+          'ins',
+          { key: index },
+          part.value
+        );
+      }
+      if (part.removed) {
+        return React.createElement(
+          'del',
+          { key: index },
+          part.value
+        );
+      }
       return React.createElement(
         'span',
-        { style: spanStyle },
+        { key: index },
         part.value
       );
     });
+
     return React.createElement(
-      'pre',
-      { className: 'diff-result' },
+      'div',
+      { className: this.props.className },
       result
     );
-  } });
+  }
+});
 
