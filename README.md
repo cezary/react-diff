@@ -1,4 +1,4 @@
-# react-diff
+# react-stylable-diff
 
 Output differences between two strings in a stylable form.
 
