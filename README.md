@@ -28,8 +28,7 @@ var MyComponent = React.createClass({
 ```
 
 You can also specify different values in `props.type`
-to compare in different ways. Valid values are `'chars'`,
-`'words'`, `'sentences'` and `'json'`:
+to compare in different ways. Valid values are `'chars'`, `'words'`, `'wordsWit Space'`, `'lines'`, `'trimmedLines'`, `'sentences'`, `'css'`, and `'json'`. You can also use options (check it in [diff](https://github.com/kpdecker/jsdiff) module):
 
 
 ```javascript
@@ -39,9 +38,10 @@ var Diff = require('react-stylable-diff');
 var MyComponent = React.createClass({
   render: function() {
     return (
-      <Diff type="words"
-        inputA="It was the worst of times"
-        inputB="It was the blurst of times"/>
+      <Diff type="lines"
+        options={ignoreWhitespace: true, newlineIsToken: true}
+        inputA="It was the best of times\nIt was the worst of times"
+        inputB="It was the best of times\n  It was the blurst of times\n"/>
     );
   }
 });

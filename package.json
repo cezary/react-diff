@@ -4,7 +4,7 @@
   "description": "Output differences between inputs, ready for css styling",
   "main": "dist/react-diff.js",
   "scripts": {
-    "build": "./node_modules/.bin/babel lib/react-diff.js > dist/react-diff.js"
+    "build": "babel lib --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
   ],
   "author": "David Mason <drdmason@gmail.com>",
   "contributors": [
-    "Cezary Wojtkowski <cezary@gmail.com>"
+    "Cezary Wojtkowski <cezary@gmail.com>",
+    "Felix Hao <felixhao28@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
@@ -28,9 +29,11 @@
     "react": ">=0.12.0"
   },
   "dependencies": {
-    "diff": "^1.2.0"
+    "diff": "^2.2.1"
   },
   "devDependencies": {
-    "babel": "^5.1.10"
+    "babel": "^6.3.26",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13"
   }
 }
