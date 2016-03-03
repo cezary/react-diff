@@ -1,32 +1,39 @@
 {
-  "name": "react-diff",
-  "version": "0.0.6",
-  "description": "Highlight differences between inputs",
+  "name": "react-stylable-diff",
+  "version": "1.0.1",
+  "description": "Output differences between inputs, ready for css styling",
   "main": "dist/react-diff.js",
   "scripts": {
-    "build": "./node_modules/.bin/babel lib/react-diff.js > dist/react-diff.js"
+    "build": "babel lib --out-dir dist"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cezary/react-diff.git"
+    "url": "https://github.com/davidmason/react-stylable-diff.git"
   },
   "keywords": [
     "react",
-    "diff"
+    "diff",
+    "css"
   ],
-  "author": "Cezary Wojtkowski <cezary@gmail.com>",
+  "author": "David Mason <drdmason@gmail.com>",
+  "contributors": [
+    "Cezary Wojtkowski <cezary@gmail.com>",
+    "Felix Hao <felixhao28@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cezary/react-diff/issues"
+    "url": "https://github.com/davidmason/react-stylable-diff/issues"
   },
-  "homepage": "https://github.com/cezary/react-diff",
+  "homepage": "https://github.com/davidmason/react-stylable-diff",
   "peerDependencies": {
     "react": ">=0.12.0"
   },
   "dependencies": {
-    "diff": "^1.2.0"
+    "diff": "^2.2.1"
   },
   "devDependencies": {
-    "babel": "^5.1.10"
+    "babel": "^6.3.26",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13"
   }
 }
