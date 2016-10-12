@@ -4,10 +4,10 @@ var React = require('react');
 var jsdiff = require('diff');
 
 var fnMap = {
-  chars: jsdiff.diffChars,
-  words: jsdiff.diffWords,
-  sentences: jsdiff.diffSentences,
-  json: jsdiff.diffJson
+  'chars': jsdiff.diffChars,
+  'words': jsdiff.diffWords,
+  'sentences': jsdiff.diffSentences,
+  'json': jsdiff.diffJson
 };
 
 module.exports = React.createClass({
@@ -29,13 +29,13 @@ module.exports = React.createClass({
 
   render: function render() {
     var diff = fnMap[this.props.type](this.props.inputA, this.props.inputB);
-    var result = diff.map(function (part) {
+    var result = diff.map(function (part, index) {
       var spanStyle = {
         backgroundColor: part.added ? 'lightgreen' : part.removed ? 'salmon' : 'lightgrey'
       };
       return React.createElement(
         'span',
-        { style: spanStyle },
+        { key: index, style: spanStyle },
         part.value
       );
     });
@@ -44,5 +44,6 @@ module.exports = React.createClass({
       { className: 'diff-result' },
       result
     );
-  } });
+  }
+});
 
