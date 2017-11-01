@@ -4,7 +4,7 @@
   "description": "Highlight differences between inputs",
   "main": "dist/react-diff.js",
   "scripts": {
-    "build": "./node_modules/.bin/babel lib/react-diff.js > dist/react-diff.js"
+    "build": "babel lib/react-diff.js --out-file dist/react-diff.js"
   },
   "repository": {
     "type": "git",
