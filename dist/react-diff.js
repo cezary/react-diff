@@ -2,6 +2,8 @@
 
 var React = require('react');
 var jsdiff = require('diff');
+var PropTypes = require('prop-types');
+var createReactClass = require('create-react-class');
 
 var fnMap = {
   'chars': jsdiff.diffChars,
@@ -10,7 +12,7 @@ var fnMap = {
   'json': jsdiff.diffJson
 };
 
-module.exports = React.createClass({
+module.exports = createReactClass({
   displayName: 'Diff',
 
   getDefaultProps: function getDefaultProps() {
@@ -22,9 +24,9 @@ module.exports = React.createClass({
   },
 
   propTypes: {
-    inputA: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.object]),
-    inputB: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.object]),
-    type: React.PropTypes.oneOf(['chars', 'words', 'sentences', 'json'])
+    inputA: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    inputB: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    type: PropTypes.oneOf(['chars', 'words', 'sentences', 'json'])
   },
 
   render: function render() {
@@ -46,4 +48,3 @@ module.exports = React.createClass({
     );
   }
 });
-
